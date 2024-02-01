@@ -9,6 +9,14 @@ export default {
 
         }
     },
+    computed: {
+        truncateDescription() {
+            if (this.project.description && this.project.description.length > 250) {
+        return this.project.description.substring(0, 150) + "...";
+      }
+      return this.project.description;
+        }
+    }
 }
 </script>
 
@@ -17,7 +25,7 @@ export default {
         <div class="card-body">
             <h4>{{ project.title }}</h4>
             <img :src="`${url}/storage/${project.project_image}`" alt="">
-            <p>{{ project.description }}</p>
+            <p>{{ truncateDescription }}</p>
             <p>Tipologia: <strong>{{ project.type ? project.type.name : 'Non definita' }}</strong></p>
         </div>
     </div>
