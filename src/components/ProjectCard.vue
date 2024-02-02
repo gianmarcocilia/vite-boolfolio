@@ -1,12 +1,13 @@
 <script>
+import { store } from '../store';
+
 export default {
     props: {
         project: Object,
-        url: String
     },
     data() {
         return {
-
+            store
         }
     },
     computed: {
@@ -24,7 +25,7 @@ export default {
     <div class="card h-100">
         <div class="card-body">
             <h4>{{ project.title }}</h4>
-            <img :src="`${url}/storage/${project.project_image}`" alt="">
+            <img :src="`${store.baseUrl}/storage/${project.project_image}`" alt="">
             <p>{{ truncateDescription }}</p>
             <p>Tipologia: <strong>{{ project.type ? project.type.name : 'Non definita' }}</strong></p>
         </div>
