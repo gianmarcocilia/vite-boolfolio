@@ -1,17 +1,19 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
 export default {
     data() {
         return {};
     },
-    components: { AppMain }
+    components: { AppMain, AppHeader }
 }
 
 </script>
 
 <template>
-  <h2 class="py-3 text-center">Boolfolio</h2>
+  <AppHeader />
+  
   <AppMain />
 </template>
 
