@@ -28,6 +28,7 @@ export default {
             <img :src="`${store.baseUrl}/storage/${project.project_image}`" alt="">
             <p>{{ truncateDescription }}</p>
             <p>Tipologia: <strong>{{ project.type ? project.type.name : 'Non definita' }}</strong></p>
+            <router-link :to="{name: 'project', params: {slug: project.slug}}">Dettagli</router-link>
         </div>
     </div>
 </template>
