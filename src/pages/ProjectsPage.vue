@@ -29,6 +29,7 @@ export default {
                 this.loading = false;
                 this.projects = resp.data.data.data;
                 this.totPage = resp.data.data.last_page;
+                console.log(this.curPage);
             });
         }
     },
@@ -50,11 +51,11 @@ export default {
 
         <nav aria-label="Result page for projects">
             <ul class="pagination justify-content-end">
-                <li class="page-item" :class="{'disabled': curPage === 1}"><a class="page-link" href=""
+                <li  class="page-item" :class="{'disabled': curPage === 1}"><a tabindex="-1" class="page-link" href=""
                         @click.prevent="getProjectsPage(curPage - 1)"><i class="fa-solid fa-left-long"></i></a></li>
                 <li v-for="page in totPage" class="page-item" :class="{'active': page === curPage}"><a class="page-link" href=""
                         @click.prevent="getProjectsPage(page)">{{ page }}</a></li>
-                <li class="page-item" :class="{'disabled': curPage === totPage}"><a class="page-link" href="" @click.prevent="getProjectsPage(curPage + 1)"><i class="fa-solid fa-right-long"></i></a>
+                <li class="page-item" :class="{'disabled': curPage === totPage}"><a tabindex="-1" class="page-link" href="" @click.prevent="getProjectsPage(curPage + 1)"><i class="fa-solid fa-right-long"></i></a>
                 </li>
             </ul>
         </nav>
